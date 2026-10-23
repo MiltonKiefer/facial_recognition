@@ -1,4 +1,5 @@
 deepface>=0.0.93
+werkzeug>=3.0
 tf-keras
 opencv-python>=4.8
 numpy>=1.24

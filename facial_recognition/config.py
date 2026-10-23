@@ -1,6 +1,6 @@
-"""Configuracoes centralizadas do projeto.
+"""Configurações centralizadas do projeto.
 
-Todos os outros modulos leem daqui: caminhos, modelo, limiar, cores e camera.
+Todos os outros módulos leem daqui: caminhos, modelo, limiar, cores e câmera.
 """
 from pathlib import Path
 
@@ -23,18 +23,18 @@ IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".webp"}
 # --------------------------------------------------------------------------- #
 # Modelo de reconhecimento (DeepFace)
 # --------------------------------------------------------------------------- #
-MODEL_NAME = "Facenet512"          # alternativas: "ArcFace", "VGG-Face", "SFace"
-DETECTOR_BACKEND = "retinaface"    # mais rapido: "opencv" | "ssd" | "mediapipe"
+MODEL_NAME = "ArcFace"          # alternativas: "Facenet512", "ArcFace", "VGG-Face", "SFace"
+DETECTOR_BACKEND = "retinaface"    # mais rápido: "opencv" | "ssd" | "mediapipe"
 ALIGN = True                       # alinha o rosto pelos olhos antes do embedding
-MIN_FACE_CONFIDENCE = 0.90         # descarta deteccoes pouco confiaveis
+MIN_FACE_CONFIDENCE = 0.92         # descarta detecções pouco confiáveis
 
-# Limiares de distancia de COSSENO (valores de referencia do DeepFace).
-# Distancia <= limiar  ->  mesma pessoa.
+# Limiares de distância de COSSENO (valores de referência do DeepFace).
+# Distância <= limiar  ->  mesma pessoa.
 COSINE_THRESHOLDS = {
     "VGG-Face": 0.68,
     "Facenet": 0.40,
     "Facenet512": 0.30,
-    "ArcFace": 0.68,
+    "ArcFace": 0.61,
     "Dlib": 0.07,
     "SFace": 0.593,
     "OpenFace": 0.10,
@@ -42,7 +42,7 @@ COSINE_THRESHOLDS = {
     "DeepID": 0.015,
     "GhostFaceNet": 0.65,
 }
-# Defina um numero (ex.: 0.25) para sobrescrever o padrao apos calibrar.
+# Defina um número (ex.: 0.25) para sobrescrever o padrão após calibrar.
 # Mais baixo = mais rigoroso (menos falsos positivos, mais falsos negativos).
 THRESHOLD_OVERRIDE = None
 
@@ -55,15 +55,15 @@ def get_threshold() -> float:
 
 
 # --------------------------------------------------------------------------- #
-# Visualizacao (cores em BGR, padrao do OpenCV)
+# Visualização (cores em BGR, padrão do OpenCV)
 # --------------------------------------------------------------------------- #
 GREEN = (0, 255, 0)
 RED = (0, 0, 255)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 
-TEXT_GRANTED = "acesso liberado"
-TEXT_DENIED = "acesso negado"
+TEXT_GRANTED = "Acesso Liberado"
+TEXT_DENIED = "Acesso Negado"
 
 BOX_THICKNESS = 3
 FONT_SCALE = 0.7

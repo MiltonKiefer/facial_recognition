@@ -18,17 +18,18 @@ pip install -r requirements.txt
    ```
 3. Teste com fotos (coloque-as em `data/raw/test/`); os resultados vão para `data/processed/results/`:
    ```bash
-   python scripts/run_test_images.py [--show]
+   python scripts/run_test_images.py
    ```
 4. Teste ao vivo pela webcam (`q` ou ESC para sair):
    ```bash
-   python scripts/run_webcam.py [--camera 1] [--every 5] [--scale 0.5]
+   python scripts/run_webcam.py
    ```
 5. Testes automatizados: `pytest`
 
 ## Calibração
 Edite `facial_recognition/config.py`:
 - `THRESHOLD_OVERRIDE`: menor = mais rigoroso (menos falsos positivos).
+- `COSINE_THRESHOLDS`: configura o rigor específico de cada modelo de reconhecimento.
 - `DETECTOR_BACKEND`: `"opencv"` é mais rápido; `"retinaface"` é mais preciso.
 - `MODEL_NAME`: `"Facenet512"` (padrão) ou `"ArcFace"`.
 
